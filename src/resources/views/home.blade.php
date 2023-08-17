@@ -1,6 +1,8 @@
 <x-layouts.app>
-    <x-slot name="header">
-        Home
-    </x-slot>
-    <p>Lorem ipsum</p>
+    @guest
+        <x-slot name="header">
+            Header
+        </x-slot>
+        <p>Sign up to get started.</p>
+    @endguest
 </x-layouts.app>
