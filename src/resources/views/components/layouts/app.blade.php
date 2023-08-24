@@ -65,7 +65,7 @@
             </ul>
             <ul>
                 <li>
-                    <a href="/" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Register</a>
+                    <a href="/auth/register" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Register</a>
                 </li>
             </ul>
         </div>
