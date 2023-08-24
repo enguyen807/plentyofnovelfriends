@@ -5,22 +5,22 @@ use function Pest\Laravel\post;
 
 uses(RefreshDatabase::class);
 
-it('has errors if the details are not provided', function () {
-    post('/register')
-        ->assertSessionHasErrors(['name', 'email', 'password']);
-});
+it('shows the register page')->get('/auth/register')->assertStatus(200);
 
-it('register the user', function () {
-    post('/register', [
+it('has errors if the details are not provided')
+    ->post('/register')
+    ->assertSessionHasErrors(['name', 'email', 'password']);
+
+it('registers the user')
+    ->tap(function () {
+        post('/register', [
             'name' => 'Eric',
             'email' => 'eric@example.com',
             'password' => 'p@ssw0rd!'
         ])
         ->assertRedirect('/');
-    $this
-        ->assertDatabaseHas('users', [
-            'name' => 'Eric',
-            'email' => 'eric@example.com'
-        ])
-        ->assertAuthenticated();
-});
+    })
+    ->assertDatabaseHas('users', [
+        'email' => 'eric@example.com'
+    ])
+    ->assertAuthenticated();
