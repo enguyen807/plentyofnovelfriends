@@ -9,10 +9,7 @@ use function Pest\Laravel\post;
 uses(RefreshDatabase::class);
 
 it('redirects an authenticated user', function () {
-    $user = User::factory()->create();
-    $this->actingAs($user)
-        ->get('/auth/login')
-        ->assertStatus(302);
+    expect(User::factory()->create())->toBeRedirectedFor('/auth/login');
 });
 
 it('shows an error for invalid form')

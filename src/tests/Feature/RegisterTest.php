@@ -1,9 +1,14 @@
 <?php
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use function Pest\Laravel\post;
 
 uses(RefreshDatabase::class);
+
+it('redirects an authenticated user', function () {
+    expect(User::factory()->create())->toBeRedirectedFor('/auth/register');
+});
 
 it('shows the register page')->get('/auth/register')->assertStatus(200);
 

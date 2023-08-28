@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +29,8 @@ uses(
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
+expect()->extend('toBeRedirectedFor', function (string $url, string $method = 'get') {
+    return actingAs($this->value)->{$method}($url)->assertStatus(302);
 });
 
 /*
@@ -42,7 +44,7 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function actingAs(Authenticatable|Model $user)
 {
-    // ..
+    return test()->actingAs($user);
 }
