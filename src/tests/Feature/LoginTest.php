@@ -12,6 +12,8 @@ it('redirects an authenticated user', function () {
     expect(User::factory()->create())->toBeRedirectedFor('/auth/login');
 });
 
+it('shows the login page')->get('/auth/login')->assertOk();
+
 it('shows an error for invalid form')
     ->post('/login')
     ->assertSessionHasErrors(['email', 'password']);
