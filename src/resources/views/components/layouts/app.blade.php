@@ -50,7 +50,10 @@
             </ul>
             <ul>
                 <li>
-                    <a href="/" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Log out</a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button class="text-md text-gray-400 hover:text-emerald-200 block py-1">Log out</button>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -60,7 +63,7 @@
         <div>
             <ul>
                 <li>
-                    <a href="/" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Login</a>
+                    <a href="/auth/login" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Login</a>
                 </li>
             </ul>
             <ul>
