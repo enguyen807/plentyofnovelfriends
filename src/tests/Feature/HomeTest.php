@@ -15,7 +15,7 @@ it('greets the user if they are signed out', function () {
 
 it('shows nav items for authenticated user', function () {
     $user = User::factory()->create();
-    $this->actingAs($user)
+    actingAs($user)
         ->get('/')
         ->assertSeeText(['Feed', 'My Books', 'Add a book', 'Friends', $user->name]);
 });
