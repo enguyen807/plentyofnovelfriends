@@ -42,7 +42,7 @@
                     <a href="/" class="text-md text-gray-400 hover:text-emerald-200 block py-1">My Books</a>
                 </li>
                 <li>
-                    <a href="/" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Add a book</a>
+                    <a href="/books/create" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Add a book</a>
                 </li>
                 <li>
                     <a href="/" class="text-md text-gray-400 hover:text-emerald-200 block py-1">Friends</a>
