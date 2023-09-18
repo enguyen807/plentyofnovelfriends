@@ -35,3 +35,10 @@ it('requires a book title, author and status')
     ->tap(fn () => $this->actingAs($this->user))
     ->post('/books')
     ->assertSessionHasErrors(['title', 'author', 'status']);
+
+it('requires a valid status')
+    ->tap(fn () => $this->actingAs($this->user))
+    ->post('/books', [
+        'status' => 'EATING'
+    ])
+    ->assertSessionHasErrors(['status']);
